@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Jaojao</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffc3c3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            position: relative; /* Added position relative to the body */
+        }
+        h1 {
+            color: #acc3c3;
+        }
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            pointer-events: none; /* This prevents the emoji from being clickable */
+        }
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+        #valentine-form {
+            margin-top: 20px; /* Adjusted margin-top */
+        }
+        button {
+            padding: 18px 32px; /* Increased padding */
+            font-size: 22px; /* Increased font size */
+            background-color: #f72c2c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 0 20px; /* Adjusted margin */
+            min-width: 100px; /* Added minimum width */
+        }
+        #no-button {
+            font-size: 22px; /* Match font size with the "Yes" button */
+        }
+        #yes-button {
+            background-color: green; /* Change background color to green */
+        }
+        #photo1, #photo2 {
+            display: none;
+            margin-top: 20px;
+            max-width: 300px;
+        }
+        #valentine-question {
+            font-size: 125%; /* Increase font size by 25% */
+            margin-bottom: 20px; /* Adjusted margin-bottom */
+        }
+        #above-photo {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+        #response {
+            max-width: 80%; /* Adjust the maximum width as needed */
+            margin: 0 auto; /* Center the element horizontally */
+            padding: 0 20px; /* Add padding to create space between the left and right edges */
+            text-align: center; /* Center the text within the response element */
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <div>
+        <img src="bowrose.jpeg" alt="Above Photo" id="above-photo"> 
+        <img src="valentine web/IMG_3900.jpg" alt="Your Photo 1" id="photo1">
+        <form id="valentine-form" action="#">
+            <p id="valentine-question">&nbsp;&nbsp;&nbsp;&nbsp;Will you be my Valentine?🥺✨</p>
+            <div id="response"></div>
+            <button type="button" value="Yes" name="response" id="yes-button">Yes</button>
+            <button type="button" value="No" name="response" id="no-button">No</button>
+        </form>
+        
+    </div>
+
+    <script>
+        document.querySelectorAll('button[name="response"]').forEach(button => {
+            button.addEventListener('click', function() {
+                var valentineResponse = this.value;
+                document.getElementById("above-photo").style.display = "none"; // Hide the above photo
+                document.getElementById("valentine-question").style.display = "none"; // Hide the question
+                if (valentineResponse === "Yes") {
+                    document.getElementById("response").innerHTML = "<p>Happy Valentine's kub!</p><p>เค้าอยากจะบอกว่า เค้ารู้สึกโชคดีมากเลยที่จู่ๆเราก็คุยกันเยอะขึ้น,เล่นเกมด้วยกันบ่อยขึ้น จนทำให้เรากลายมาเป็นแฟนกันได้ เค้าอยากขอบคุณที่รัก ที่ทำตัวน่ารักกับเค้ามาตลอด เค้าประทับใจที่รักตั้งแต่เดทแรกเลยนะ เพราะเค้าเป็นคนพูดน้อย ที่รักก็ยังพยายามชวนเค้าคุย ที่รักน่ารักที่สุดเลยคั้บ! เค้าหวังว่าเค้าจะมีที่รักในทุกๆวาเลนไทน์ที่จะมาถึงในอนาคตเลยนะคับ อยู่กับเค้าไปนานๆนะค้าบ🥰<br>รักนะคะ<br> 14/02/24</p>";
+                    document.querySelectorAll('button[name="response"]').forEach(btn => {
+                        btn.style.display = "none";
+                    });
+                    document.getElementById("photo2").style.display = "none";
+                } else {
+                    document.getElementById("response").innerHTML = "<p>ให้โอกาสคิดอีกรอบคั้บ!😉</p>";
+                    document.getElementById("no-button").style.display = "none";
+                    document.getElementById("photo1").style.display = "none";
+                    document.getElementById("yes-button").style.fontSize = "66px";
+                }
+            });
+        });
+    </script>
+    
+    <!-- Heart emojis in all corners -->
+    <div class="heart top-left">❤️</div>
+    <div class="heart top-right">❤️</div>
+    <div class="heart bottom-left">❤️</div>
+    <div class="heart bottom-right">❤️</div>
+</body>
+</html>
